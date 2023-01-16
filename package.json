@@ -28,5 +28,8 @@
   "dependencies": {
     "intl-messageformat": "^10.2.5",
     "ts-toolbelt": "^9.6.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
