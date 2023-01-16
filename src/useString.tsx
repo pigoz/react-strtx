@@ -1,6 +1,5 @@
 import React from 'react';
 import { useClientSideBoundary } from './ClientSideBoundary';
-import './useString.css';
 import { mfmt } from './MessageFormat';
 import { Narrow } from './narrow';
 
