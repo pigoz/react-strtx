@@ -1,5 +1,11 @@
 # react-strtx
 
+## 0.0.4
+
+### Patch Changes
+
+- use object instead of string
+
 ## 0.0.3
 
 ### Patch Changes

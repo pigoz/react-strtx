@@ -4,7 +4,9 @@ import { z } from 'zod';
 import { pipe } from '@fp-ts/data/Function';
 import { Narrow } from './narrow';
 
-export function mfmt<V extends Vars>(value: S<V>, vars: Narrow<V>) {
+export function mfmt<V extends Vars>(s: S<V>, vars: Narrow<V>): string {
+  const value = s.value;
+
   try {
     // TODO make it-IT configurable
     const msg = new IntlMessageFormat(cleanHtml(value), 'it-IT');
@@ -16,7 +18,7 @@ export function mfmt<V extends Vars>(value: S<V>, vars: Narrow<V>) {
       return value;
     }
   } catch (e) {
-    console.log(`error in '${String(value._k)}'`);
+    console.log(`error in '${String(s._k)}'`);
     console.error(e);
     return value;
   }

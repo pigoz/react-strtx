@@ -4,11 +4,13 @@ import { mfmt } from './MessageFormat';
 import { Narrow } from './narrow';
 
 export type Vars = Record<string, string | number | boolean>;
-export type S<V> = string & { _k: string; _v: V };
+export type S<V> = { value: string; _k: string; _v: V };
 
 export function make<V = never>(key: string, value: string): S<V> {
-  (value as any)._k = key;
-  return value as any;
+  return {
+    value,
+    _k: key,
+  } as S<V>;
 }
 
 export type Meta = { collection?: 'string' | 'markdown' };
@@ -113,12 +115,12 @@ export function useString() {
     );
   }
 
-  function tx<V extends Vars>(value: S<V>, vars?: Narrow<V>) {
+  function tx<V extends Vars>(value: S<V>, vars?: Narrow<V>): TxEl {
     return <Tx value={value} vars={vars} />;
   }
 
-  function raw<V extends Vars>(value: S<V>, vars?: Narrow<V>) {
-    return vars ? mfmt(value, vars) : value;
+  function raw<V extends Vars>(value: S<V>, vars?: Narrow<V>): string {
+    return vars ? mfmt(value, vars) : value.value;
   }
 
   function ctx<V extends Vars>(value: S<V>, vars?: Narrow<V>): TxContext<V> {
