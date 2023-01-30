@@ -25,14 +25,18 @@ export function mfmt<V extends Vars>(s: S<V>, vars: Narrow<V>): string {
 }
 
 function cleanHtml(src: string) {
-  return pipe(
+  const replacements = [
+    ["'<b>'", '<b>'],
+    ["'</b>'", '</b>'],
+    ['<b>', "'<b>'"],
+    ['</b>', "'</b>'"],
+  ] as const;
+
+  return replacements.reduce(
+    (acc, cur) => replaceAll(cur[0], cur[1], acc),
     src,
-    replaceAll("'<b>'", '<b>'),
-    replaceAll("'</b>'", '</b>'),
-    replaceAll('<b>', "'<b>'"),
-    replaceAll('</b>', "'</b>'"),
   );
 }
 
-export const replaceAll = (src: string, dst: string) => (target: string) =>
+export const replaceAll = (src: string, dst: string, target: string) =>
   target.replace(new RegExp(src, 'g'), dst);

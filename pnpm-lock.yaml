@@ -2,7 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@changesets/cli': ^2.26.0
-  '@fp-ts/data': ^0.0.39
   '@types/node': ^18.11.18
   '@types/react': ^18.0.26
   intl-messageformat: ^10.2.5
@@ -18,7 +17,6 @@ dependencies:
 
 devDependencies:
   '@changesets/cli': 2.26.0
-  '@fp-ts/data': 0.0.39
   '@types/node': 18.11.18
   '@types/react': 18.0.26
   react: 18.2.0
@@ -291,16 +289,6 @@ packages:
     dependencies:
       tslib: 2.4.1
     dev: false
-
-  /@fp-ts/core/0.0.11:
-    resolution: {integrity: sha512-BCAJBYzghwoJpcUOARJ1tui50HoYJFlV2pJlVMlsEkDFhD8MTtq8xQVpZCRF66RmtkxtGBYINCQ+5H1lRaL35Q==}
-    dev: true
-
-  /@fp-ts/data/0.0.39:
-    resolution: {integrity: sha512-dNw1LWjQmChmdenrDuxPct+ycucgKQQboVtWqov8rkAGY3DULznoSDJZam6l2kaLdq1ScPv810N4mzLLT+cBBw==}
-    dependencies:
-      '@fp-ts/core': 0.0.11
-    dev: true
 
   /@manypkg/find-root/1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}

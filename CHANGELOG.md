@@ -1,5 +1,11 @@
 # react-strtx
 
+## 0.0.5
+
+### Patch Changes
+
+- remove fp-ts/data dependency
+
 ## 0.0.4
 
 ### Patch Changes
